@@ -15,6 +15,7 @@ class CreateQuestoesTable extends Migration
     {
         Schema::create('questoes', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->unsignedBigInteger('teste');
             $table->text('enunciado');
             $table->string('respostaA');
             $table->string('respostaB');
@@ -24,6 +25,8 @@ class CreateQuestoesTable extends Migration
             $table->string('respostaCerta');
             $table->double('valorTotalQuestao');
             $table->timestamps();
+
+            $table->foreign('teste')->references('id')->on('testes')->onDelete('CASCADE');
         });
     }
 
