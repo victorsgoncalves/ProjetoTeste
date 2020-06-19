@@ -17,13 +17,13 @@ class CreateQuestoesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('teste');
             $table->text('enunciado');
-            $table->string('respostaA');    
-            $table->string('respostaB');
-            $table->string('respostaC');
-            $table->string('respostaD');
-            $table->string('respostaE');
-            $table->string('respostaCerta');
-            $table->double('valorTotalQuestao');
+            $table->string('respostaA', 50);
+            $table->string('respostaB', 50);
+            $table->string('respostaC', 50);
+            $table->string('respostaD', 50);
+            $table->string('respostaE', 50);
+            $table->string('respostaCerta', 50);
+            $table->decimal('valorTotalQuestao', 5, 2);
             $table->timestamps();
 
             $table->foreign('teste')->references('id')->on('testes')->onDelete('CASCADE');

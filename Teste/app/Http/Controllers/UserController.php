@@ -4,9 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Questao;
-
-class QuestaoController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +13,7 @@ class QuestaoController extends Controller
      */
     public function index()
     {
-        return view('teste');
+        return view('index');
     }
 
     /**
@@ -25,19 +23,7 @@ class QuestaoController extends Controller
      */
     public function create()
     {
-        $questao = new Questao();
-        $questao->id = $request->id;
-        $questao->teste = $request->teste;
-        $questao->enunciado = $request->enunciado;
-        $questao->respostaA = $request->respostaA;
-        $questao->respostaB = $request->respostaB;
-        $questao->respostaC = $request->respostaC;
-        $questao->respostaD = $request->respostaD;
-        $questao->respostaE = $request->respostaE;
-        $questao->respostaCerta = $request->respostaCerta;
-        $questao->valorTotalQuestao = $request->valorTotalQuestao;
-        $questao-> save();
-        
+        //
     }
 
     /**
