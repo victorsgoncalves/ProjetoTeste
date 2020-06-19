@@ -17,7 +17,7 @@ class CreateQuestoesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('teste');
             $table->text('enunciado');
-            $table->string('respostaA');
+            $table->string('respostaA');    
             $table->string('respostaB');
             $table->string('respostaC');
             $table->string('respostaD');
