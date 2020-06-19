@@ -25,10 +25,13 @@
    // Route::get('delete', 'TesteController@destroy')->name('delete');
 
 Route::get('admin/testes/', ['as' => 'admin.testes', 'uses'=>'Admin\TesteController@index']);
+
 Route::get('admin/testes/create', ['as' => 'admin.testes.create', 'uses'=>'Admin\TesteController@create']);
 Route::post('admin/testes/store', ['as' => 'admin.testes.store', 'uses'=>'Admin\TesteController@store']);
+
 Route::get('admin/testes/edit/{id}', ['as' => 'admin.testes.edit', 'uses'=>'Admin\TesteController@edit']);
 Route::put('admin/testes/update/{id}', ['as' => 'admin.testes.update', 'uses'=>'Admin\TesteController@update']);
+
 Route::get('admin/testes/destroy/{id}', ['as' => 'admin.testes.destroy', 'uses'=>'Admin\TesteController@destroy']);
 
 
