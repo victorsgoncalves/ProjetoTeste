@@ -22,9 +22,8 @@ class CreateQuestoesTable extends Migration
             $table->string('respostaC', 50);
             $table->string('respostaD', 50);
             $table->string('respostaE', 50);
-            $table->string('respostaCerta', 50);
+            $table->char('respostaCerta', 1);
             $table->decimal('valorTotalQuestao', 5, 2);
-            $table->timestamps();
 
             $table->foreign('teste')->references('id')->on('testes')->onDelete('CASCADE');
         });

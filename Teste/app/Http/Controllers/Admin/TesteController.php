@@ -44,14 +44,12 @@ class TesteController extends Controller
         $dados = $request->all();
         Teste::find($id)->update($dados);
 
-        return redirect()->route('admin.testes');
-   
+        return redirect()->route('admin.testes');   
     }
 
     public function destroy($id)
     {
         Teste::find($id)->delete();
-        return redirect()->route('admin.testes')->with('alert-success','Teste e suas questões deletados com sucesso!');
- 
+        return redirect()->route('admin.testes'); 
     }
 }

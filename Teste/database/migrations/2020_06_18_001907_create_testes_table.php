@@ -17,7 +17,6 @@ class CreateTestesTable extends Migration
             $table->bigIncrements('id');
             $table->string('nome', 50);
             $table->decimal('pontuacao_minima', 5, 2);
-            $table->timestamps();
         });
     }
 

@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criação de Teste</title>
+    <title>Gerenciamento de Testes</title>
 </head>
 <body>
-<h2>Criação de Testes</h2>
+<h2>Gerenciamento de Testes</h2>
+
             <a href="{{route('admin.testes.create')}}">Criar Testes</a><br><br>
+            <a href="{{route('admin.questoes')}}">Gerenciamento de Questões</a><br><br>
+
     <table border="1">
         <thead>
         <tr>
