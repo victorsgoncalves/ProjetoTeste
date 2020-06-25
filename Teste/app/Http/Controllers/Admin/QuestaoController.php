@@ -16,7 +16,8 @@ class QuestaoController extends Controller
      */
     public function index()
     {
-        //
+        $registros = Questao::all();
+        return view('admin.questoes.index', compact('registros'));
     }
 
     /**
@@ -26,13 +27,17 @@ class QuestaoController extends Controller
      */
     public function create()
     {
-        //
+        $registros = Teste::all();
+        $respostas = ['A','B','C','D','E'];
+        return view('admin.questoes.create', compact('registros', 'respostas'));
     }
 
    
     public function store(Request $request)
     {
-        //
+        $dados = $request->all();
+        Questao::create($dados);
+        return redirect()->route('admin.questoes')->with(array('mensagem'=>'Questão cadastrada com sucesso!'));
     }
 
 
@@ -43,16 +48,23 @@ class QuestaoController extends Controller
 
     public function edit($id)
     {
-        //
+        $registros = Questao::find($id);
+        $testes = Teste::all();
+        $respostas = ['A','B','C','D','E'];
+        return view('admin.questoes.edit', compact('registros', 'testes', 'respostas'));
     }
 
     public function update(Request $request, $id)
     {
-        //
+        $dados = $request->all();
+        Questao::find($id)->update($dados);
+
+        return redirect()->route('admin.questoes')->with(array('mensagem'=>'Questão atualizada com sucesso!'));
     }
 
     public function destroy($id)
     {
-        //
+        Questao::find($id)->delete();
+        return redirect()->route('admin.questoes')->with(array('mensagem'=>'Questão deletada com sucesso!'));
     }
 }
