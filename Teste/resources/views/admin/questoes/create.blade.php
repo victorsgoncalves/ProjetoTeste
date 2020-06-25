@@ -17,10 +17,11 @@
     <textarea name="enunciado" id="enunciado" cols="30" rows="10"></textarea><br><br>
 
     <label for="teste">Teste:</label>
-    <select type="number" name="teste" id="teste">
-
-        <option>1</option>
-
+    <select name="teste" id="teste">
+        <option value="">Selecione</option>
+        @foreach($registros as $registro)
+            <option value="{{$registro->id}}">{{$registro->nome}}</option>
+        @endforeach
     </select><br><br>
 
     <label for="respostaA">Resposta A:</label>
@@ -39,11 +40,10 @@
     <input type="text" name="respostaE" id="respostaE"><br><br>
 
     <select name="respostaCerta" id="respostaCerta">
-    <option>A</option>
-    <option>B</option>
-    <option>C</option>
-    <option>D</option>
-    <option>E</option>
+    <option value="">Selecione</option>
+    @foreach($respostas as $resposta)
+    <option>{{$resposta}}</option>
+    @endforeach
     </select><br><br>
 
     <label for="valorTotalQuestao">Valor total da questão:</label>

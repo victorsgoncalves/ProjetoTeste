@@ -16,8 +16,7 @@ class QuestaoController extends Controller
      */
     public function index()
     {
-        $registrosQ = Questao::all();
-        return view('admin.questoes.index', compact('registrosQ'));
+        //
     }
 
     /**
@@ -27,15 +26,13 @@ class QuestaoController extends Controller
      */
     public function create()
     {
-        return view('admin.questoes.create');
+        //
     }
 
    
     public function store(Request $request)
     {
-        $dadosQ = $request->all();
-        Questao::create($dadosQ);
-        return redirect()->route('admin.questoes');
+        //
     }
 
 
@@ -46,21 +43,16 @@ class QuestaoController extends Controller
 
     public function edit($id)
     {
-        $registroQ = Questao::find($id);
-        return view('admin.questoes.edit', compact('registroQ'));
+        //
     }
 
     public function update(Request $request, $id)
     {
-        $dadosQ = $request->all();
-        Questao::find($id)->update($dadosQ);
-
-        return redirect()->route('admin.questoes');
+        //
     }
 
     public function destroy($id)
     {
-        Questao::find($id)->delete();
-        return redirect()->route('admin.questoes');
+        //
     }
 }

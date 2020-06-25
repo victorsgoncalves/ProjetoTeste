@@ -24,7 +24,7 @@ class TesteController extends Controller
         $dados = $request->all();
         Teste::create($dados);
 
-        return redirect()->route('admin.testes');
+        return redirect()->route('admin.testes')->with(array('mensagem'=>'Teste cadastrado com sucesso!'));
 
     }
 
@@ -44,12 +44,12 @@ class TesteController extends Controller
         $dados = $request->all();
         Teste::find($id)->update($dados);
 
-        return redirect()->route('admin.testes');   
+        return redirect()->route('admin.testes')->with(array('mensagem'=>'Teste atualizado com sucesso!'));   
     }
 
     public function destroy($id)
     {
         Teste::find($id)->delete();
-        return redirect()->route('admin.testes'); 
+        return redirect()->route('admin.testes')->with(array('mensagem'=>'Teste deletado com sucesso!')); 
     }
 }

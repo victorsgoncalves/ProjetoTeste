@@ -12,5 +12,9 @@ class Questao extends Model
     
     protected $fillable = ['teste', 'enunciado', 'respostaA',
      'respostaB', 'respostaC','respostaD','respostaE','respostaCerta', 'valorTotalQuestao'];
+
+    public function relTestes(){
+        return $this->hasOne(Teste::class, 'id', 'teste');
+    }
 }
     

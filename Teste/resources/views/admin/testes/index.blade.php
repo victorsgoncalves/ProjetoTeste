@@ -11,6 +11,8 @@
             <a href="{{route('admin.testes.create')}}">Criar Testes</a><br><br>
             <a href="{{route('admin.questoes')}}">Gerenciamento de Questões</a><br><br>
 
+            <h3>{{ Session::get('mensagem') }}</h3><br><br>
+
     <table border="1">
         <thead>
         <tr>

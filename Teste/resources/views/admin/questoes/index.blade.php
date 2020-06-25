@@ -9,27 +9,35 @@
 <h2>Gerenciamento de Questões</h2>
 
     <a href="{{route('admin.questoes.create')}}">Criar Questões</a><br><br>
+    <a href="{{route('admin.testes')}}">Gerenciamento de Testes</a><br><br>
+
+    <h3>{{ Session::get('mensagem') }}</h3><br><br>
 
     <table border="1">
         <thead>
         <tr>
             <th>#</th>
+            <th>Nome da Questão</th>
             <th>Enunciado</th>
             <th>Editar Questão</th>
             <th>Deletar Questão</th>
         </tr>
         </thead>
         <tbody>
-        @foreach($registrosQ as $registroQ)
+        @foreach($registros as $registro)
+            @php
+                $teste=$registro->find($registro->id)->relTestes;
+            @endphp
             <tr>
-                <td>{{$registroQ->id}}</td>
-                <td>{{$registroQ->enunciado}}</td>
-                <td><a href="{{route('admin.questoes.edit', $registroQ->id)}}">Atualizar</a></td>
-                <td><a href="{{route('admin.questoes.destroy', $registroQ->id)}}">Deletar</a></td>
+                <td>{{$registro->id}}</td>
+                <td>{{$teste->nome}}</td>
+                <td>{{$registro->enunciado}}</td>
+                <td><a href="{{route('admin.questoes.edit', $registro->id)}}">Atualizar</a></td>
+                <td><a href="{{route('admin.questoes.destroy', $registro->id)}}">Deletar</a></td>
             </tr>
         @endforeach
         </tbody>
-    </table>
+    </table><br><br>
 </body>
 </html>
 

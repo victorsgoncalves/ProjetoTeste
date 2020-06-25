@@ -11,4 +11,8 @@ class Teste extends Model
 
    protected $fillable = ['nome', 'pontuacao_minima'];
 
+   public function relTestes(){
+      return $this->hasMany(Questao::class, 'teste', 'id');
+  }
+
 }
