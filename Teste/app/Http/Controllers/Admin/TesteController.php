@@ -30,7 +30,8 @@ class TesteController extends Controller
 
     public function show($id)
     {
-        //dd(Teste::findOrFail($id));
+        $teste = Teste::find($id);
+        return view('admin.testes.lista', compact('teste'));
     }
 
     public function edit($id)

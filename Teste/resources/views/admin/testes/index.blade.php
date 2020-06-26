@@ -20,6 +20,7 @@
             <th>Nome</th>
             <th>Editar Teste</th>
             <th>Deletar Teste</th>
+            <th>Listagem de Questões</th>
         </tr>
         </thead>
         <tbody>
@@ -29,6 +30,7 @@
                 <td>{{$registro->nome}}</td>
                 <td><a href="{{route('admin.testes.edit', $registro->id)}}">Atualizar</a></td>
                 <td><a href="{{route('admin.testes.destroy', $registro->id)}}">Deletar</a></td>
+                <td><a href="{{route('admin.testes.lista', $registro->id)}}">Lista de Questões</a></td>
             </tr>
         @endforeach
         </tbody>

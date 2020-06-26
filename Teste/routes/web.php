@@ -3,6 +3,9 @@
 //Routes de view principal testes
 Route::get('admin/testes/', ['as' => 'admin.testes', 'uses'=>'Admin\TesteController@index']);
 
+//Routes de view Lista de Questões por testes.
+Route::get('admin/testes/lista/{id}', ['as' => 'admin.testes.lista', 'uses'=>'Admin\TesteController@show']);
+
 //Routes de salvar testes
 Route::get('admin/testes/create', ['as' => 'admin.testes.create', 'uses'=>'Admin\TesteController@create']);
 Route::post('admin/testes/store', ['as' => 'admin.testes.store', 'uses'=>'Admin\TesteController@store']);
