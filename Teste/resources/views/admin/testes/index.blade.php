@@ -21,6 +21,7 @@
             <th>Editar Teste</th>
             <th>Deletar Teste</th>
             <th>Listagem de Questões</th>
+            <th>Responder Teste</th>
         </tr>
         </thead>
         <tbody>
@@ -31,6 +32,7 @@
                 <td><a href="{{route('admin.testes.edit', $registro->id)}}">Atualizar</a></td>
                 <td><a href="{{route('admin.testes.destroy', $registro->id)}}">Deletar</a></td>
                 <td><a href="{{route('admin.testes.lista', $registro->id)}}">Lista de Questões</a></td>
+                <td><a href="{{route('admin.resultado.responder', $registro->id)}}">Responder Teste</a></td>
             </tr>
         @endforeach
         </tbody>

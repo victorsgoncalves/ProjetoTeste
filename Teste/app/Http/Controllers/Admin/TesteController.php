@@ -53,4 +53,20 @@ class TesteController extends Controller
         Teste::find($id)->delete();
         return redirect()->route('admin.testes')->with(array('mensagem'=>'Teste deletado com sucesso!')); 
     }
+
+    public function responder($id)
+    {
+        $teste = Teste::find($id);
+        return view('admin.resultado.responder', compact('teste'));    
+    }
+
+    public function resposta($id, Request $request)
+    {
+        $dados = $request->all();
+        $teste = Teste::find($id);
+
+        return view('admin.resultado.resposta', compact('teste'))->with(array('mensagem'=>'Resposta enviada com sucesso!'));
+
+    }
+
 }

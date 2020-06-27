@@ -31,4 +31,10 @@ Route::put('admin/questoes/update/{id}', ['as' => 'admin.questoes.update', 'uses
 //Routes de deletar questoes
 Route::get('admin/questoes/destroy/{id}', ['as' => 'admin.questoes.destroy', 'uses'=>'Admin\QuestaoController@destroy']);
 
+//Routes de Responder
+Route::get('admin/resultado/responder/{id}', ['as' => 'admin.resultado.responder', 'uses'=>'Admin\TesteController@responder']);
+Route::post('admin/resultado/resposta/{id}', ['as' => 'admin.resultado.resposta', 'uses'=>'Admin\RespostaController@resposta']);
 
+
+//Routes de Resultado do teste realizado.
+Route::get('admin/resultado/resposta/{id}', ['as' => 'admin.resultado.resposta', 'uses'=>'Admin\TesteController@resposta']);
