@@ -11,7 +11,22 @@
 </head>
 <body>
 <nav class="navbar navbar-expanded-lg navbar-secondary bg-secondary">
-    <a href="{{route('admin.testes')}}" class="navbar-brand text-light">Testes Acadêmicos</a>
+    <div class="container">
+    <ul class="letf hide-on-med-and-down">
+        <h1><a href="{{route('admin.usuarios')}}" class="navbar-brand text-light">Testes Acadêmicos</a></h1>
+    </ul>
+        <ul class="right hide-on-med-and-down">
+            @if(Auth::guest())
+                <a href="{{route('admin.usuarios')}}" class="btn btn-success flot-right">Entrar</a>
+                <a href="{{route('admin.usuarios.registrar')}}" class="btn btn-primary flot-right">Registre-se</a>
+            @else
+                <a href="#" class="navbar-brand text-light">Bem vindo(a): {{Auth::user()->name}}</a>
+                <a href="{{route('admin.testes')}}" class="btn btn-info flot-right">Gerenciamento de Testes</a>
+                <a href="{{route('admin.questoes')}}" class="btn btn-info flot-right">Gerenciamento de Questões</a>
+                <a href="{{route('admin.usuarios.sair')}}" class="btn btn-danger flot-right">Sair</a>
+            @endif
+        </ul>
+    </div>
 </nav>
 
 <div class="container">
