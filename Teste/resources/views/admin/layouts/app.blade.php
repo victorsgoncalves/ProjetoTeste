@@ -20,7 +20,7 @@
                 <a href="{{route('admin.usuarios')}}" class="btn btn-success flot-right">Entrar</a>
                 <a href="{{route('admin.usuarios.registrar')}}" class="btn btn-primary flot-right">Registre-se</a>
             @else
-                <a href="#" class="navbar-brand text-light">Bem vindo(a): {{Auth::user()->name}}</a>
+                <a href="#" class="navbar-brand text-light">Bem vindo(a), {{Auth::user()->name}}</a>
                 <a href="{{route('admin.testes')}}" class="btn btn-info flot-right">Gerenciamento de Testes</a>
                 <a href="{{route('admin.questoes')}}" class="btn btn-info flot-right">Gerenciamento de Questões</a>
                 <a href="{{route('admin.usuarios.sair')}}" class="btn btn-danger flot-right">Sair</a>
@@ -30,9 +30,9 @@
 </nav>
 
 <div class="container">
+    
     @yield('content')
+
 </div>
-
-
 </body>
 </html>

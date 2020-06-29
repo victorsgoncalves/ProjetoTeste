@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Teste;
+use App\User;
 
 class TesteController extends Controller
 {
@@ -14,7 +15,7 @@ class TesteController extends Controller
         return view('admin.testes.index', compact('registros'));
     }
 
-    public function create(Request $request)
+    public function create()
     {
         return view('admin.testes.create');
     }
@@ -37,7 +38,8 @@ class TesteController extends Controller
     public function edit($id)
     {
         $registro = Teste::find($id);
-        return view('admin.testes.edit', compact('registro'));
+        $usuario = User::all();
+        return view('admin.testes.edit', compact('registro', 'usuario'));
     }
 
     public function update(Request $request, $id)

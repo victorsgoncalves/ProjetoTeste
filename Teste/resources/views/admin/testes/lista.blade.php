@@ -46,6 +46,7 @@
         </tr>
         </thead>
         <tbody>
+        @if($teste->user == Auth::user()->id)
             @php
                 $questoes = $teste->relTestes()->get();
             @endphp
@@ -62,6 +63,7 @@
                 <td>{{$questao->valorTotalQuestao}}</td>            
             </tr>
             @endforeach
+            @endif
         </tbody>
     </table>
     </div>

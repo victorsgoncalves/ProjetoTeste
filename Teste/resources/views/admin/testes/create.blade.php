@@ -6,6 +6,13 @@
 
 <form action="{{route('admin.testes.store')}}" method="post">
 @csrf
+    
+    <div class="form-group">
+        <label for="user">Usuário:</label>
+        <select name="user" id="user" class="form-control">
+                <option value="{{Auth::user()->id}}">{{Auth::user()->name}}</option>
+        </select><br><br>
+    </div>
 
     <div class="form-group">
         <label for="nome">Nome</label><br>

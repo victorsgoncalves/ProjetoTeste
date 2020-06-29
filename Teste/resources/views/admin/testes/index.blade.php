@@ -29,17 +29,20 @@
             </tr>
             </thead>
             <tbody>
-            
-            @foreach($registros as $registro)
-                <tr>
-                    <td>{{$registro->id}}</td>
-                    <td>{{$registro->nome}}</td>
-                    <td><a href="{{route('admin.testes.edit', $registro->id)}}" class="btn btn-warning flot-right">Atualizar</a></td>
-                    <td><a href="{{route('admin.testes.destroy', $registro->id)}}" class="btn btn-danger flot-right">Deletar</a></td>
-                    <td><a href="{{route('admin.testes.lista', $registro->id)}}" class="btn btn-info flot-right">Lista de Questões</a></td>
-                    <td><a href="{{route('admin.resultado.responder', $registro->id)}}" class="btn btn-primary flot-right">Responder Teste</a></td>
-                </tr>
-            @endforeach
+            @if (Auth::check())                  
+                @foreach($registros as $registro)
+                    @if($registro->user == Auth::user()->id)
+                    <tr>                    
+                        <td>{{$registro->id}}</td>
+                        <td>{{$registro->nome}}</td>
+                        <td><a href="{{route('admin.testes.edit', $registro->id)}}" class="btn btn-warning flot-right">Atualizar</a></td>
+                        <td><a href="{{route('admin.testes.destroy', $registro->id)}}" class="btn btn-danger flot-right">Deletar</a></td>
+                        <td><a href="{{route('admin.testes.lista', $registro->id)}}" class="btn btn-info flot-right">Lista de Questões</a></td>
+                        <td><a href="{{route('admin.resultado.responder', $registro->id)}}" class="btn btn-primary flot-right">Responder Teste</a></td>
+                    </tr>
+                    @endif
+                @endforeach
+            @endif
             </tbody>
         </table>
     </div>

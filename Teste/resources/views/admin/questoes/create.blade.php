@@ -16,7 +16,9 @@
         <select name="teste" id="teste" class="form-control">
             <option value="">Selecione</option>
             @foreach($registros as $registro)
-                <option value="{{$registro->id}}">{{$registro->nome}}</option>
+                @if($registro->user == Auth::user()->id)
+                    <option value="{{$registro->id}}">{{$registro->nome}}</option>
+                @endif
             @endforeach
         </select><br><br>
     </div>

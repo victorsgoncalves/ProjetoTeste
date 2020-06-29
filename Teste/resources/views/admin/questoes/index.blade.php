@@ -28,7 +28,9 @@
             </tr>
             </thead>
             <tbody>
+            @if(Auth::check())
             @foreach($registros as $registro)
+            @if($registro->user == Auth::user()->id)
                 @php
                     $teste=$registro->find($registro->id)->relTestes;
                 @endphp
@@ -39,7 +41,9 @@
                     <td><a href="{{route('admin.questoes.edit', $registro->id)}}"  class="btn btn-warning flot-right">Atualizar</a></td>
                     <td><a href="{{route('admin.questoes.destroy', $registro->id)}}" class="btn btn-danger flot-right">Deletar</a></td>
                 </tr>
+            @endif
             @endforeach
+            @endif
             </tbody>
         </table>
     </div>

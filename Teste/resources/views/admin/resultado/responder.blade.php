@@ -2,6 +2,7 @@
 @section('content')
 
     <h2>Responder o Teste</h2>
+    @if($teste->user == Auth::user()->id)
 
     <div class="p-3 mb-2 bg-secondary text-white">
         Nome do Teste: {{$teste->nome}}
@@ -70,5 +71,7 @@
     <button class="btn btn-primary flot-right">Enviar respostas</button><br>
 
 </form>
+
+@endif
 
 @endsection

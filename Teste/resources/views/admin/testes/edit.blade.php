@@ -6,6 +6,15 @@
 <form action="{{route('admin.testes.update', $registro->id)}}" method="POST">
         @csrf
     <input type="hidden" name="_method" value="put">
+
+    <div class="form-group">
+        <label for="user">Usuário:</label>
+        <select name="user" id="user" class="form-control">
+        @if($registro->user == Auth::user()->id)
+        <option value="{{$registro->user}}">{{Auth::user()->name}}</option>
+        @endif
+        </select><br><br>
+    </div>
         
     <div class="form-group">
         <label for="nome">Nome</label><br>
