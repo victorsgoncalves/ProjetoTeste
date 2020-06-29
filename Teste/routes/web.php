@@ -37,4 +37,4 @@ Route::post('admin/resultado/resposta/{id}', ['as' => 'admin.resultado.resposta'
 
 
 //Routes de Resultado do teste realizado.
-Route::get('admin/resultado/resposta/{id}', ['as' => 'admin.resultado.resposta', 'uses'=>'Admin\TesteController@resposta']);
+Route::get('admin/resultado/resposta', ['as' => 'admin.resultado.resposta', 'uses'=>'Admin\TesteController@resposta']);

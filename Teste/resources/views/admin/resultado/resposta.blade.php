@@ -1,36 +1,39 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Testes</title>
-</head>
-<body>
-<h2>Resultado do Teste de {{ $teste->nome }}</h2>
+@extends('admin.layouts.app')
+@section('content')
 
-    <a href="{{route('admin.testes')}}">Gerenciamento de Testes</a><br><br>
+    <div class="row align-items-center">
+        <div class="col-sm">
+            <h2>Resultado do Teste de {{ $teste->nome }}</h2>
 
-    <h3>{{ Session::get('mensagem') }}</h3><br><br>
+            <a href="{{route('admin.testes')}}" class="btn btn-secondary  flot-right">Gerenciamento de Testes</a><br><br>
 
-    <table border="1">
-        <thead>
-        <tr>
-            <th>Questão</th>
-            <th>Número de Acertos</th>
-            <th>Número de Erros</th>
-            <th>Nota final</th>
-            <th>Status</th>
-        </tr>
-        </thead>
-        <tbody>
+
+            <div class="alert alert-info" role="alert">
+                <h3>{{ Session::get('mensagem') }}</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-borderless">
+            <thead class="thead-dark">
             <tr>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
+                <th>Questão</th>
+                <th>Número de Acertos</th>
+                <th>Número de Erros</th>
+                <th>Nota final</th>
+                <th>Status</th>
             </tr>
-        </tbody>
-    </table>
-</body>
-</html>
+            </thead>
+            <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+@endsection

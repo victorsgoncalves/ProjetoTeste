@@ -1,23 +1,22 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Responder Teste</title>
-</head>
-<body>
-    <h1>Responder o Teste</h1>
-    <h2>Nome do Teste: {{$teste->nome}}</h2>
-    <h3>Pontuação mínima para aprovação: {{$teste->pontuacao_minima}}</h3>
+@extends('admin.layouts.app')
+@section('content')
+
+    <h2>Responder o Teste</h2>
+
+    <div class="p-3 mb-2 bg-secondary text-white">
+        Nome do Teste: {{$teste->nome}}
+    </div>
+    <div class="p-3 mb-2 bg-secondary text-white">
+        Pontuação mínima para aprovação: {{$teste->pontuacao_minima}}
+    </div>
+
 
     @php
         $questoes = $teste->relTestes()->get();
         $num = 0;
     @endphp
 
-    <form action="{{route('admin.resultado.resposta', $teste->id)}}" method="post">
+<form action="{{route('admin.resultado.resposta', $teste->id)}}" method="post">
     @csrf    
 
     @foreach($questoes as $questao)
@@ -25,34 +24,51 @@
     @php
         $num += 1;
     @endphp
+    <div class="p-3 mb-2 bg-light text-dark">
+            <p><b>Questão {{$num}}:</b></p> {{ $questao->enunciado }}
+    </div>    
     
-        <h3>Questão {{$num}}: {{ $questao->enunciado }}</h3>
-
+    <div class="form-check">
         <p> a) <input type="Radio" name="questao{{ $num }}" value="A">
             {{ $questao->respostaA }}
-        </p></br>
+        </p>
+    </div>
+
+    <div class="form-check">
         <p>b) <input type="Radio" name="questao{{ $num }}" value="B">
             {{ $questao->respostaB }}
-        </p></br>
+        </p>
+    </div>
+
+    <div class="form-check">
         <p>c) <input type="Radio" name="questao{{ $num }}" value="C">
             {{ $questao->respostaC }}
-        </p></br>
+        </p>
+    </div>
+
+    <div class="form-check">
         <p>d) <input type="Radio" name="questao{{ $num }}" value="D">
             {{ $questao->respostaD }}            
-        </p></br>
+        </p>
+    </div>
+
+    <div class="form-check">
         <p>e) <input type="Radio" name="questao{{ $num }}" value="E">
             {{ $questao->respostaE }}            
-        </p></br>
+        </p>
+    </div>
 
-        <p>Valor total da questão: {{ $questao->valorTotalQuestao }}</p>
+    <div class="p-3 mb-2 bg-info text-white">
+        Valor total da questão: {{ $questao->valorTotalQuestao }}
+    </div>
 
-        <hr><br>
+
+    <hr><br>
 
     @endforeach
 
-    <button>Enviar respostas</button><br>
+    <button class="btn btn-primary flot-right">Enviar respostas</button><br>
 
-    </form>
+</form>
 
-</body>
-</html>
+@endsection

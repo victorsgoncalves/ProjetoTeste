@@ -60,12 +60,11 @@ class TesteController extends Controller
         return view('admin.resultado.responder', compact('teste'));    
     }
 
-    public function resposta($id, Request $request)
+    public function resposta(Request $request)
     {
         $dados = $request->all();
-        $teste = Teste::find($id);
 
-        return view('admin.resultado.resposta', compact('teste'))->with(array('mensagem'=>'Resposta enviada com sucesso!'));
+        return view('admin.resultado.resposta', compact('dados'))->with(array('mensagem'=>'Resposta enviada com sucesso!'));
 
     }
 

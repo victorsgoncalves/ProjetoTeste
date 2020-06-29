@@ -1,37 +1,38 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listagem de Questões</title>
-</head>
-<body>
+@extends('admin.layouts.app')
+@section('content')
 
-<a href="{{route('admin.testes')}}">Gerenciamento de Testes</a><br><br>
-<a href="{{route('admin.questoes')}}">Gerenciamento de Questões</a><br><br>
+    <div class="row align-items-center">
+        <div class="col-sm">
+            <h2>Listagem de Testes e sua Questões</h2>
 
+            <a href="{{route('admin.testes')}}"  class="btn btn-secondary  flot-right">Gerenciamento de Testes</a><br><br>
+            <a href="{{route('admin.questoes')}}"  class="btn btn-secondary  flot-right">Gerenciamento de Questões</a><br><br>
+        
+            <h2>Dados do Teste</h2>
+        </div>
+    </div>
 
-<h2>Dados do Teste</h2>
-
-    <table border="1">
-        <thead>
-        <tr>
-            <th>Nome</th>
-            <th>Pontuação mínima para aprovação</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div class="table-responsive">
+        <table class="table table-striped table-borderless">
+            <thead class="thead-dark">
             <tr>
-                <td>{{$teste->nome}}</td>
-                <td>{{$teste->pontuacao_minima}}</td>
+                <th>Nome</th>
+                <th>Pontuação mínima para aprovação</th>
             </tr>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{$teste->nome}}</td>
+                    <td>{{$teste->pontuacao_minima}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 
     <h2>Lista de Questões</h2>
-
-    <table border="1">
-        <thead>
+    <div class="table-responsive">
+    <table class="table table-striped table-borderless">
+        <thead class="thead-dark">
         <tr>
             <th>#</th>
             <th>Enunciado</th>
@@ -63,5 +64,5 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+    </div>
+@endsection

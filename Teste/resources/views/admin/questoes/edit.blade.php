@@ -1,69 +1,78 @@
-<!doctype html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Atualizar Questões</title>
-</head>
-<body>
+@extends('admin.layouts.app')
+@section('content')
 
 <h1>Atualizar Questões</h1>
 
 <form action="{{route('admin.questoes.update', $registros->id)}}" method="post">
 @csrf
-<input type="hidden" name="_method" value="put">
+    <input type="hidden" name="_method" value="put">
 
-    <label for="enunciado">Enunciado: </label><br>
-    <textarea name="enunciado" id="enunciado" cols="30" rows="10">{{isset($registros->enunciado)?$registros->enunciado:''}}</textarea><br><br>
+    <div class="form-group">
+        <label for="enunciado">Enunciado: </label><br>
+        <textarea name="enunciado" id="enunciado" cols="30" rows="10" class="form-control">{{isset($registros->enunciado)?$registros->enunciado:''}}</textarea><br><br>
+    </div>
 
-    <label for="teste">Teste:</label>
-    <select name="teste" id="teste">
-    @php
-        $dado=$registros->find($registros->id)->relTestes;
-    @endphp
-    <option value="{{$registros->teste}}"
-        @if(isset($registros) && ($registros->teste == $dado->id))
-            selected
-        @endif       
-    >{{ $dado->nome }}</option>
-    @foreach($testes as $teste)
-    <option value="{{$teste->id}}">{{$teste->nome}}</option>
-    @endforeach
-    </select><br><br>
+    <div class="form-group">
+        <label for="teste">Teste:</label>
+        <select name="teste" id="teste" class="form-control">
+        @php
+            $dado=$registros->find($registros->id)->relTestes;
+        @endphp
+        <option value="{{$registros->teste}}"
+            @if(isset($registros) && ($registros->teste == $dado->id))
+                selected
+            @endif       
+        >{{ $dado->nome }}</option>
+        @foreach($testes as $teste)
+        <option value="{{$teste->id}}">{{$teste->nome}}</option>
+        @endforeach
+        </select><br><br>
+    </div>
 
-    <label for="respostaA">Resposta A:</label>
-    <input type="text" name="respostaA" id="respostaA" value="{{isset($registros->respostaA)?$registros->respostaA:''}}"><br><br>
+    <div class="form-group">
+        <label for="respostaA">Resposta A:</label>
+        <input type="text" name="respostaA" id="respostaA" class="form-control" value="{{isset($registros->respostaA)?$registros->respostaA:''}}"><br><br>
+    </div>
 
-    <label for="respostaB">Resposta B:</label>
-    <input type="text" name="respostaB" id="respostaB" value="{{isset($registros->respostaB)?$registros->respostaB:''}}"><br><br>
+    <div class="form-group">
+        <label for="respostaB">Resposta B:</label>
+        <input type="text" name="respostaB" id="respostaB" class="form-control" value="{{isset($registros->respostaB)?$registros->respostaB:''}}"><br><br>
+    </div>
 
-    <label for="respostaC">Resposta C:</label>
-    <input type="text" name="respostaC" id="respostaC" value="{{isset($registros->respostaC)?$registros->respostaC:''}}"><br><br>
+    <div class="form-group">
+        <label for="respostaC">Resposta C:</label>
+        <input type="text" name="respostaC" id="respostaC" class="form-control" value="{{isset($registros->respostaC)?$registros->respostaC:''}}"><br><br>
+    </div>
 
-    <label for="respostaD">Resposta D:</label>
-    <input type="text" name="respostaD" id="respostaD" value="{{isset($registros->respostaD)?$registros->respostaD:''}}"><br><br>
+    <div class="form-group">
+        <label for="respostaD">Resposta D:</label>
+        <input type="text" name="respostaD" id="respostaD" class="form-control" value="{{isset($registros->respostaD)?$registros->respostaD:''}}"><br><br>
+    </div>
 
-    <label for="respostaE">Resposta E:</label>
-    <input type="text" name="respostaE" id="respostaE" value="{{isset($registros->respostaE)?$registros->respostaE:''}}"><br><br>
-    
-    <label for="respostaCerta">Resposta Certa:</label>
-    <select name="respostaCerta" id="respostaCerta">
-    @foreach($respostas as $resposta)
-    <option value="{{$resposta}}"
-        @if(isset($registros) && $registros->respostaCerta == $resposta)
-            selected
-        @endif
-    >{{ $resposta }}</option>
-    @endforeach
-    </select><br><br>
-    
-    <label for="valorTotalQuestao">Valor total da questão:</label>
-    <input type="number" name="valorTotalQuestao" id="valorTotalQuestao" value="{{isset($registros->valorTotalQuestao)?$registros->valorTotalQuestao:''}}"><br><br>
+    <div class="form-group">
+        <label for="respostaE">Resposta E:</label>
+        <input type="text" name="respostaE" id="respostaE" class="form-control" value="{{isset($registros->respostaE)?$registros->respostaE:''}}"><br><br>
+    </div>
 
-    <button>Atualizar</button>
-</form> <br>
+    <div class="form-group">
+        <label for="respostaCerta">Resposta Certa:</label>
+        <select name="respostaCerta" id="respostaCerta" class="form-control">
+        @foreach($respostas as $resposta)
+        <option value="{{$resposta}}"
+            @if(isset($registros) && $registros->respostaCerta == $resposta)
+                selected
+            @endif
+        >{{ $resposta }}</option>
+        @endforeach
+        </select><br><br>
+    </div>
 
-</body>
-</html>
+    <div class="form-group">
+        <label for="valorTotalQuestao">Valor total da questão:</label>
+        <input type="number" name="valorTotalQuestao" id="valorTotalQuestao" class="form-control" value="{{isset($registros->valorTotalQuestao)?$registros->valorTotalQuestao:''}}"><br><br>
+    </div>
+
+    <button  class="btn btn-warning flot-right">Atualizar</button>
+</form>
+
+@endsection

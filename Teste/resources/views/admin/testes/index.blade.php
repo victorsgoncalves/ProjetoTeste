@@ -1,43 +1,49 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gerenciamento de Testes</title>
-</head>
-<body>
-<h2>Gerenciamento de Testes</h2>
+@extends('admin.layouts.app')
+@section('content')
 
-            <a href="{{route('admin.testes.create')}}">Criar Testes</a><br><br>
-            <a href="{{route('admin.questoes')}}">Gerenciamento de Questões</a><br><br>
+    <div class="row align-items-center">
+            <div class="col-sm">
+                <h2>Gerenciamento de Testes</h2>
 
-            <h3>{{ Session::get('mensagem') }}</h3><br><br>
+                <a href="{{route('admin.testes.create')}}" class="btn btn-secondary flot-right">Criar Testes</a><br><br>
+                <a href="{{route('admin.questoes')}}" class="btn btn-secondary  flot-right">Gerenciamento de Questões</a><br><br>
+            </div>
 
-    <table border="1">
-        <thead>
-        <tr>
-            <th>#</th>
-            <th>Nome</th>
-            <th>Editar Teste</th>
-            <th>Deletar Teste</th>
-            <th>Listagem de Questões</th>
-            <th>Responder Teste</th>
-        </tr>
-        </thead>
-        <tbody>
-        @foreach($registros as $registro)
+            <div class="col-sm">
+                    <div class="alert alert-info" role="alert">
+                        <h3>{{ Session::get('mensagem') }}</h3>
+                    </div>
+            </div>
+    </div>
+
+    <div class="table-responsive">
+        <table class="table table-striped table-borderless">
+            <thead class="thead-dark">
             <tr>
-                <td>{{$registro->id}}</td>
-                <td>{{$registro->nome}}</td>
-                <td><a href="{{route('admin.testes.edit', $registro->id)}}">Atualizar</a></td>
-                <td><a href="{{route('admin.testes.destroy', $registro->id)}}">Deletar</a></td>
-                <td><a href="{{route('admin.testes.lista', $registro->id)}}">Lista de Questões</a></td>
-                <td><a href="{{route('admin.resultado.responder', $registro->id)}}">Responder Teste</a></td>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Editar Teste</th>
+                <th>Deletar Teste</th>
+                <th>Listagem de Questões</th>
+                <th>Responder Teste</th>
             </tr>
-        @endforeach
-        </tbody>
-    </table>
-</body>
-</html>
+            </thead>
+            <tbody>
+            
+            @foreach($registros as $registro)
+                <tr>
+                    <td>{{$registro->id}}</td>
+                    <td>{{$registro->nome}}</td>
+                    <td><a href="{{route('admin.testes.edit', $registro->id)}}" class="btn btn-warning flot-right">Atualizar</a></td>
+                    <td><a href="{{route('admin.testes.destroy', $registro->id)}}" class="btn btn-danger flot-right">Deletar</a></td>
+                    <td><a href="{{route('admin.testes.lista', $registro->id)}}" class="btn btn-info flot-right">Lista de Questões</a></td>
+                    <td><a href="{{route('admin.resultado.responder', $registro->id)}}" class="btn btn-primary flot-right">Responder Teste</a></td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
+
+@endsection
 
 
