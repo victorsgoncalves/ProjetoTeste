@@ -1,7 +1,7 @@
 <?php
 
 //Routes de view Login
-Route::get('admin/usuarios/', ['as' => 'admin.usuarios', 'uses'=>'Site\LoginController@index']);
+Route::get('/', ['as' => 'admin.usuarios', 'uses'=>'Site\LoginController@index']);
 Route::post('admin/usuarios/entrar', ['as' => 'admin.usuarios.entrar', 'uses'=>'Site\LoginController@entrar']);
 Route::get('admin/usuarios/sair', ['as' => 'admin.usuarios.sair', 'uses'=>'Site\LoginController@sair']);
 Route::get('admin/usuarios/registrar', ['as' => 'admin.usuarios.registrar', 'uses'=>'Site\LoginController@registrar']);
