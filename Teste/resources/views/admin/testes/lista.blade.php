@@ -5,8 +5,7 @@
         <div class="col-sm">
             <h2>Listagem de Testes e sua Questões</h2>
 
-            <a href="{{route('admin.testes')}}"  class="btn btn-secondary  flot-right">Gerenciamento de Testes</a><br><br>
-            <a href="{{route('admin.questoes')}}"  class="btn btn-secondary  flot-right">Gerenciamento de Questões</a><br><br>
+            <hr>
         
             <h2>Dados do Teste</h2>
         </div>

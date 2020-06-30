@@ -2,11 +2,11 @@
 @section('content')
 
 <br><h2>Efetuar Login</h2><br>
-
-<div class="alert alert-info" role="alert">
-    <h3>{{ Session::get('mensagem') }}</h3>
-</div>
-
+@if(Session::get('mensagem'))
+    <div class="alert alert-info" role="alert">
+        <h3>{{ Session::get('mensagem') }}</h3>
+    </div>
+@endif
 
 <form action="{{route('admin.usuarios.entrar')}}" method="post">
 @csrf

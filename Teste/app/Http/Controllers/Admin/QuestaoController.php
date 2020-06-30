@@ -17,7 +17,8 @@ class QuestaoController extends Controller
     public function index()
     {
         $registros = Questao::all();
-        return view('admin.questoes.index', compact('registros'));
+        $testes= Teste::all();
+        return view('admin.questoes.index', compact('registros', 'testes'));
     }
 
     /**
@@ -38,12 +39,6 @@ class QuestaoController extends Controller
         $dados = $request->all();
         Questao::create($dados);
         return redirect()->route('admin.questoes')->with(array('mensagem'=>'Questão cadastrada com sucesso!'));
-    }
-
-
-    public function show($id)
-    {
-        //
     }
 
     public function edit($id)

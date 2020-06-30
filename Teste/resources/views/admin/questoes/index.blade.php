@@ -6,13 +6,14 @@
             <h2>Gerenciamento de Questões</h2>
 
             <a href="{{route('admin.questoes.create')}}" class="btn btn-secondary flot-right">Criar Questões</a><br><br>
-            <a href="{{route('admin.testes')}}" class="btn btn-secondary  flot-right">Gerenciamento de Testes</a><br><br>
         </div>
 
         <div class="col-sm">
+            @if(Session::get('mensagem'))
             <div class="alert alert-info" role="alert">
                 <h3>{{ Session::get('mensagem') }}</h3>
             </div>
+            @endif
         </div>
     </div>
     
@@ -28,26 +29,25 @@
             </tr>
             </thead>
             <tbody>
-            @if(Auth::check())
-            @foreach($registros as $registro)
-            @if($registro->user == Auth::user()->id)
-                @php
-                    $teste=$registro->find($registro->id)->relTestes;
-                @endphp
-                <tr>
-                    <td>{{$registro->id}}</td>
-                    <td>{{$teste->nome}}</td>
-                    <td>{{$registro->enunciado}}</td>
-                    <td><a href="{{route('admin.questoes.edit', $registro->id)}}"  class="btn btn-warning flot-right">Atualizar</a></td>
-                    <td><a href="{{route('admin.questoes.destroy', $registro->id)}}" class="btn btn-danger flot-right">Deletar</a></td>
-                </tr>
-            @endif
-            @endforeach
+            @if (Auth::check())     
+                @foreach($registros as $registro)
+                    @php
+                        $dado=$registro->find($registro->id)->relTestes;
+                    @endphp
+                        @if($dado->user == Auth::user()->id)
+                            <tr>
+                                <td>{{$registro->id}}</td>
+                                <td>{{$dado->nome}}</td>
+                                <td>{{$registro->enunciado}}</td>
+                                <td><a href="{{route('admin.questoes.edit', $registro->id)}}"  class="btn btn-warning flot-right">Atualizar</a></td>
+                                <td><a href="{{route('admin.questoes.destroy', $registro->id)}}" class="btn btn-danger flot-right">Deletar</a></td>
+                            </tr>
+                        @endif                              
+                @endforeach
             @endif
             </tbody>
         </table>
     </div>
-
 @endsection
 
 

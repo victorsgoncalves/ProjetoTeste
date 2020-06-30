@@ -41,12 +41,12 @@ Route::group(['middleware'=>'auth'], function(){
     Route::get('admin/questoes/destroy/{id}', ['as' => 'admin.questoes.destroy', 'uses'=>'Admin\QuestaoController@destroy']);
 
     //Routes de Responder
-    Route::get('admin/resultado/responder/{id}', ['as' => 'admin.resultado.responder', 'uses'=>'Admin\TesteController@responder']);
+    Route::get('admin/resultado/responder/{id}', ['as' => 'admin.resultado.responder', 'uses'=>'Admin\RespostaController@responder']);
     Route::post('admin/resultado/resposta/{id}', ['as' => 'admin.resultado.resposta', 'uses'=>'Admin\RespostaController@resposta']);
 
 
     //Routes de Resultado do teste realizado.
-    Route::get('/admin/resultado/resposta', ['as' => 'admin.resultado.resposta', 'uses'=>'Admin\TesteController@resposta']);
+    Route::get('/admin/resultado/resposta', ['as' => 'admin.resultado.resposta', 'uses'=>'Admin\RespostaController@resposta']);
 
 });
 
