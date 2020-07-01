@@ -1,7 +1,9 @@
 @extends('admin.layouts.app')
 @section('content')
 
-<h2>Cadastrar Questões</h2>
+<div class="text-secondary">
+    <br><h2>Cadastrar Questões</h2><br>
+</div>
 
 <form action="{{route('admin.questoes.store')}}" method="post">
 @csrf

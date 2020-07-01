@@ -2,8 +2,8 @@
 @section('content')
 
     <div class="row align-items-center">
-        <div class="col-sm">
-            <h2>Gerenciamento de Questões</h2>
+        <div class="col-sm text-secondary">
+            <br><h2>Gerenciamento de Questões</h2><br>
 
             <a href="{{route('admin.questoes.create')}}" class="btn btn-secondary flot-right">Criar Questões</a><br><br>
         </div>

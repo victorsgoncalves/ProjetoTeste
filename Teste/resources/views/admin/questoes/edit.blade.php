@@ -1,7 +1,9 @@
 @extends('admin.layouts.app')
 @section('content')
 
-<h1>Atualizar Questões</h1>
+<div class="text-secondary">
+    <br><h2>Atualizar Questões</h2><br>
+</div>
 
 <form action="{{route('admin.questoes.update', $registros->id)}}" method="post">
 @csrf
@@ -72,7 +74,7 @@
         <input type="number" name="valorTotalQuestao" id="valorTotalQuestao" class="form-control" value="{{isset($registros->valorTotalQuestao)?$registros->valorTotalQuestao:''}}"><br><br>
     </div>
 
-    <button  class="btn btn-warning flot-right">Atualizar</button>
+    <button  class="btn btn-warning flot-right">Atualizar</button><br><br>
 </form>
 
 @endsection

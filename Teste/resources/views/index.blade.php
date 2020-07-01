@@ -1,7 +1,10 @@
 @extends('admin.layouts.app')
 @section('content')
 
-<br><h2>Efetuar Login</h2><br>
+<div class="col-sm text-secondary">
+    <br><h2>Efetuar Login</h2><br>
+</div>
+
 @if(Session::get('mensagem'))
     <div class="alert alert-info" role="alert">
         <h3>{{ Session::get('mensagem') }}</h3>

@@ -1,17 +1,17 @@
 @extends('admin.layouts.app')
 @section('content')
 
-<h2>Cadastro de Testes</h2>
-
+<div class="text-secondary">
+    <br><h2>Cadastro de Testes</h2><br>
+</div>
 
 <form action="{{route('admin.testes.store')}}" method="post">
 @csrf
     
     <div class="form-group">
         <label for="user">Usuário:</label>
-        <select name="user" id="user" class="form-control">
-                <option value="{{Auth::user()->id}}">{{Auth::user()->name}}</option>
-        </select><br><br>
+        <h3 class="btn btn-light flot-right" for="user">{{Auth::user()->name}}</h3>
+        <input type="hidden" name="user" value="{{Auth::user()->id}}">
     </div>
 
     <div class="form-group">

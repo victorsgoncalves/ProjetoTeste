@@ -16,7 +16,7 @@ class CreateTestesTable extends Migration
         Schema::create('testes', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user');
-            $table->string('nome', 50);
+            $table->string('nome', 250);
             $table->decimal('pontuacao_minima', 5, 2);
 
             $table->foreign('user')->references('id')->on('users')->onDelete('CASCADE');

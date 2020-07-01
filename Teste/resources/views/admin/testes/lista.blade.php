@@ -2,12 +2,12 @@
 @section('content')
 
     <div class="row align-items-center">
-        <div class="col-sm">
-            <h2>Listagem de Testes e sua Questões</h2>
+        <div class="col-sm text-secondary">
+            <br><h2>Listagem de Testes e sua Questões</h2><br>
 
             <hr>
-        
-            <h2>Dados do Teste</h2>
+
+            <h2>Dados do Teste</h2><br>
         </div>
     </div>
 
@@ -28,7 +28,11 @@
         </table>
     </div>
 
-    <h2>Lista de Questões</h2>
+    <hr>
+
+    <div class="col-sm text-secondary">
+        <br><h2>Lista de Questões</h2><br>
+    </div>
     <div class="table-responsive">
     <table class="table table-striped table-borderless">
         <thead class="thead-dark">
@@ -65,5 +69,10 @@
             @endif
         </tbody>
     </table>
+
+    <br>
+    <hr>
+    <br>
+
     </div>
 @endsection

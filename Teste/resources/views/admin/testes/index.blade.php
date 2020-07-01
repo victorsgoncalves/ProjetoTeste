@@ -2,8 +2,8 @@
 @section('content')
 
     <div class="row align-items-center">
-            <div class="col-sm">
-                <h2>Gerenciamento de Testes</h2>
+            <div class="col-sm text-secondary">
+                <br><h2>Gerenciamento de Testes</h2><br>
 
                 <a href="{{route('admin.testes.create')}}" class="btn btn-secondary flot-right">Criar Testes</a><br><br>
             </div>
@@ -30,13 +30,13 @@
             </tr>
             </thead>
             <tbody>
-            @if (Auth::check())                  
+            @if(Auth::check())                  
                 @foreach($registros as $registro)
                     <tr>                    
                         <td>{{$registro->id}}</td>
                         <td>{{$registro->nome}}</td>
                         @if($registro->user != Auth::user()->id)
-                        <td><a href="{{route('admin.resultado.responder', $registro->id)}}" class="btn btn-primary flot-right">Responder Teste</a></td>
+                        <td><a href="{{route('admin.resultados.responder', $registro->id)}}" class="btn btn-primary flot-right">Responder Teste</a></td>
                         @endif
                         @if($registro->user == Auth::user()->id)
                         <td></td>

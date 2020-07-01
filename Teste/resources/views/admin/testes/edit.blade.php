@@ -1,7 +1,9 @@
 @extends('admin.layouts.app')
 @section('content')
 
-<h2>Atualizar Testes</h2>
+<div class="text-secondary">
+    <br><h2>Atualizar Testes</h2><br>
+</div>
 
 <form action="{{route('admin.testes.update', $registro->id)}}" method="POST">
         @csrf
@@ -9,11 +11,8 @@
 
     <div class="form-group">
         <label for="user">Usuário:</label>
-        <select name="user" id="user" class="form-control">
-        @if($registro->user == Auth::user()->id)
-        <option value="{{$registro->user}}">{{Auth::user()->name}}</option>
-        @endif
-        </select><br><br>
+        <h3 class="btn btn-light flot-right" for="user">{{Auth::user()->name}}</h3>
+        <input type="hidden" name="user" value="{{Auth::user()->id}}">
     </div>
         
     <div class="form-group">

@@ -1,7 +1,9 @@
 @extends('admin.layouts.app')
 @section('content')
 
-<br><h2>Cadastro de Usuário</h2><br>
+<div class="col-sm text-secondary">
+    <br><h2>Cadastro de Usuário</h2><br>
+</div>
 
 
 <form action="{{route('admin.usuarios.cadastrar')}}" method="post">
@@ -22,7 +24,7 @@
         <input type="password" name="password" id="password" class="form-control" placeholder="Digite a sua senha..."><br><br>
     </div>
 
-    <button class="btn btn-primary flot-right">Salvar Usuário</button>
+    <button class="btn btn-primary flot-right">Salvar Usuário</button><br><br>
 
 </form>
 
