@@ -30,13 +30,13 @@
             </tr>
             </thead>
             <tbody>
-            @if (Auth::check())                  
+            @if(Auth::check())                  
                 @foreach($registros as $registro)
                     <tr>                    
                         <td>{{$registro->id}}</td>
                         <td>{{$registro->nome}}</td>
                         @if($registro->user != Auth::user()->id)
-                        <td><a href="{{route('admin.resultado.responder', $registro->id)}}" class="btn btn-primary flot-right">Responder Teste</a></td>
+                        <td><a href="{{route('admin.resultados.responder', $registro->id)}}" class="btn btn-primary flot-right">Responder Teste</a></td>
                         @endif
                         @if($registro->user == Auth::user()->id)
                         <td></td>

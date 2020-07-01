@@ -1,6 +1,8 @@
 @extends('admin.layouts.app')
 @section('content')
 
+<form action="{{route('admin.resultados.resposta', $teste->id)}}" method="post">
+@csrf
     <h2>Responder o Teste</h2>
 
     <div class="p-3 mb-2 bg-secondary text-white">
@@ -13,11 +15,8 @@
 
     @php
         $questoes = $teste->relTestes()->get();
-        $num = 0;
-    @endphp
-
-<form action="{{route('admin.resultado.resposta', $teste->id)}}" method="post">
-    @csrf    
+        $num=0
+    @endphp    
 
     @foreach($questoes as $questao)
     
@@ -59,13 +58,16 @@
     </div>
 
     <div class="p-3 mb-2 bg-info text-white">
-        Valor total da questão: {{ $questao->valorTotalQuestao }}
+        Valor total da questão: 
+        <input type="text" name="valorTotalQuestao{{ $num }}" class="btn btn-info flot-right" readonly="readonly" value="{{ $questao->valorTotalQuestao }}">
     </div>
 
-
+    <input type="hidden" name="respostaCerta{{ $num }}" value="{{$questao->respostaCerta}}">
     <hr><br>
 
     @endforeach
+
+    <input type="hidden" name="num" value="{{$num}}">
 
     <button class="btn btn-primary flot-right">Enviar respostas</button><br>
 

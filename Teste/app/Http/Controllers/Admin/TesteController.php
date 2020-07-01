@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Teste;
 use App\User;
+Use Auth;
 
 class TesteController extends Controller
 {
