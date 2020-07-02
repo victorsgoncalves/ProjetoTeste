@@ -26,7 +26,9 @@
             @endif       
         >{{ $dado->nome }}</option>
         @foreach($testes as $teste)
+        @if($teste->user == Auth::user()->id)
         <option value="{{$teste->id}}">{{$teste->nome}}</option>
+        @endif
         @endforeach
         </select><br><br>
     </div>

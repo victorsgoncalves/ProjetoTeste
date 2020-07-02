@@ -3,17 +3,20 @@
 
 <form action="{{route('admin.resultados.resposta', $teste->id)}}" method="post">
 @csrf
+
     <div class="text-secondary">
-        <br><br><h2>Responder o Teste</h2><br>
+        <br><h2>Responder o Teste</h2><br>
     </div>
 
     <div class="p-3 mb-2 bg-secondary text-white">
-        <b><h4>Nome do Teste:</h4></b> {{$teste->nome}}
+        <h4><b>Nome do Teste:</b></h4> {{$teste->nome}}
     </div>
     <div class="p-3 mb-2 bg-secondary text-white">
-    <b><h4>Pontuação mínima para aprovação:</h4></b> {{$teste->pontuacao_minima}}
+        <h4><b>Pontuação mínima para aprovação:</b></h4> {{$teste->pontuacao_minima}}
     </div>
 
+    <br>
+    <hr>
     <br>
 
     @php
@@ -31,25 +34,25 @@
     </div>    
     
     <div class="form-check">
-        <p><b> a)</b> <input type="Radio" name="questao{{ $num }}" value="A">
+        <p><b> a)</b>  <input type="Radio" name="questao{{ $num }}" value="A">
             {{ $questao->respostaA }}
         </p>
     </div>
 
     <div class="form-check">
-        <p><b> b)</b> <input type="Radio" name="questao{{ $num }}" value="B">
+        <p><b> b)</b>  <input type="Radio" name="questao{{ $num }}" value="B">
             {{ $questao->respostaB }}
         </p>
     </div>
 
     <div class="form-check">
-        <p><b> c)</b> <input type="Radio" name="questao{{ $num }}" value="C">
+        <p><b> c)</b>  <input type="Radio" name="questao{{ $num }}" value="C">
             {{ $questao->respostaC }}
         </p>
     </div>
 
     <div class="form-check">
-        <p><b> d)</b> <input type="Radio" name="questao{{ $num }}" value="D">
+        <p><b> d)</b>  <input type="Radio" name="questao{{ $num }}" value="D">
             {{ $questao->respostaD }}            
         </p>
     </div>

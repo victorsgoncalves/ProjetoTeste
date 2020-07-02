@@ -47,5 +47,9 @@ class RespostaController extends Controller
 
 
         return redirect()->route('admin.resultados')->with(array('reprovado'=>'Infelizmente '.$usuario.' você está Reprovado no teste de '.$nome.'. Sua nota final foi '.$notaFinal.'!'));
+            return redirect()->route('admin.resultados')->with(array('aprovado'=>'Parabéns '.$usuario.' você está Aprovada no teste de '.$nome.'. Sua nota foi '.$notaFinal.'!'));
+
+
+        return redirect()->route('admin.resultados')->with(array('reprovado'=>'Infelizmente '.$usuario.' você está Reprovado no teste de '.$nome.'. Sua nota foi '.$notaFinal.'!'));
     }
 }
